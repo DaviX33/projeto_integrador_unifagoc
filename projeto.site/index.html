@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Alfabetismo Digital</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3B82F6',secondary:'#10B981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+scroll-behavior: smooth;
+}
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #3B82F6;
+cursor: pointer;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.custom-checkbox {
+display: none;
+}
+.custom-checkbox-label {
+position: relative;
+padding-left: 30px;
+cursor: pointer;
+}
+.custom-checkbox-label:before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+width: 20px;
+height: 20px;
+border: 2px solid #3B82F6;
+border-radius: 4px;
+background-color: white;
+}
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-bottom {
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+.hero-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 20;
+  padding: 2rem 0;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 80vh;
+    text-align: center;
+  }
+  
+  .hero-bg {
+    background-position: 60% center;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-buttons a {
+    width: 100%;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+@media (min-width: 768px) {
+  .form-half {
+    width: calc(50% - 0.75rem);
+  }
+}
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-cards {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.btn-outline {
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: #f8fafc;
+}
+
+@media (max-width: 767px) {
+  .btn {
+    width: 100%;
+    padding: 0.75rem;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+}
+.custom-checkbox:checked + .custom-checkbox-label:before {
+background-color: #3B82F6;
+}
+.custom-checkbox:checked + .custom-checkbox-label:after {
+content: '';
+position: absolute;
+left: 7px;
+top: 3px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 16px;
+width: 16px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #3B82F6;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center py-4">
+<div class="flex items-center">
+<a href="#" class="h-12">
+<img src="https://static.readdy.ai/image/66e564e1cc0fd1850066a7c6b0396ffd/80bc5af3d9d5f3bf5fa5a0b1b3bcfbb3.png" alt="UNIFAGOC" class="h-full">
+</a>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="#definicao" class="text-gray-700 hover:text-primary font-medium transition">Definição</a>
+<a href="#importancia" class="text-gray-700 hover:text-primary font-medium transition">Importância</a>
+<a href="#niveis" class="text-gray-700 hover:text-primary font-medium transition">Níveis</a>
+<a href="#recursos" class="text-gray-700 hover:text-primary font-medium transition">Recursos</a>
+<a href="#depoimentos" class="text-gray-700 hover:text-primary font-medium transition">Depoimentos</a>
+<a href="#feedback" class="text-gray-700 hover:text-primary font-medium transition">Feedback</a>
+</nav>
+<div class="md:hidden flex items-center">
+<button id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="md:hidden hidden pb-4">
+<div class="flex flex-col space-y-3">
+<a href="#definicao" class="text-gray-700 hover:text-primary font-medium transition">Definição</a>
+<a href="#importancia" class="text-gray-700 hover:text-primary font-medium transition">Importância</a>
+<a href="#niveis" class="text-gray-700 hover:text-primary font-medium transition">Níveis</a>
+<a href="#recursos" class="text-gray-700 hover:text-primary font-medium transition">Recursos</a>
+<a href="#depoimentos" class="text-gray-700 hover:text-primary font-medium transition">Depoimentos</a>
+<a href="#feedback" class="text-gray-700 hover:text-primary font-medium transition">Feedback</a>
+</div>
+</div>
+</div>
+</header>
+<section class="relative">
+<div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20modern%20digital%20literacy%20scene%20with%20diverse%20people%20of%20different%20ages%20using%20various%20digital%20devices%20in%20a%20bright%2C%20modern%20environment%20with%20floating%20digital%20icons%20and%20educational%20symbols.%20The%20image%20should%20have%20a%20clean%2C%20gradient%20background%20transitioning%20from%20white%20to%20light%20blue%20on%20the%20right%20side%2C%20creating%20a%20perfect%20backdrop%20for%20text%20on%20the%20left%20side.&width=1920&height=800&seq=hero1&orientation=landscape');"></div>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+<div class="flex flex-col items-start justify-center min-h-[600px] py-20">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">Alfabetismo Digital</h1>
+<p class="text-xl text-gray-700 mb-8">Desenvolvendo competências essenciais para navegar no mundo digital com confiança e segurança.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#definicao" class="bg-primary text-white px-8 py-3 rounded-button font-medium shadow-lg hover:bg-blue-600 transition whitespace-nowrap">Saiba Mais</a>
+<a href="#recursos" class="bg-white text-primary border border-primary px-8 py-3 rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">Recursos Gratuitos</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="definicao" class="py-20 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">O que é Alfabetismo Digital?</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Compreenda o conceito e sua importância no mundo contemporâneo.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="order-2 md:order-1">
+<h3 class="text-2xl font-semibold text-gray-900 mb-6">Definição Abrangente</h3>
+<p class="text-gray-700 mb-6">O alfabetismo digital vai muito além do simples uso de dispositivos eletrônicos. Trata-se da capacidade de localizar, avaliar, utilizar, compartilhar e criar conteúdo usando tecnologias da informação e a internet de forma eficaz, crítica e segura.</p>
+<div class="bg-blue-50 rounded-lg p-6 mb-6">
+<h4 class="text-lg font-semibold text-gray-900 mb-3">Estatísticas Importantes</h4>
+<ul class="space-y-3">
+<li class="flex items-center">
+<i class="ri-pie-chart-line text-primary mr-3"></i>
+<span>76% dos empregos exigem habilidades digitais básicas</span>
+</li>
+<li class="flex items-center">
+<i class="ri-line-chart-line text-primary mr-3"></i>
+<span>Aumento de 40% na demanda por profissionais digitalmente alfabetizados</span>
+</li>
+<li class="flex items-center">
+<i class="ri-funds-line text-primary mr-3"></i>
+<span>Crescimento de 25% no salário médio de profissionais com competências digitais</span>
+</li>
+</ul>
+</div>
+<p class="text-gray-700 mb-8">É um conjunto de competências técnicas, cognitivas e socioemocionais que permitem às pessoas participarem plenamente da sociedade digital, exercendo cidadania e aproveitando oportunidades profissionais e educacionais.</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-blue-50 p-6 rounded-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-blue-100/50 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+<i class="ri-search-line ri-xl text-primary"></i>
+</div>
+<h4 class="text-lg font-medium text-gray-900 mb-2">Busca e Avaliação</h4>
+<p class="text-gray-600">Capacidade de encontrar e avaliar informações online com senso crítico.</p>
+</div>
+<div class="bg-green-50 p-6 rounded-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-green-100/50 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+<i class="ri-shield-check-line ri-xl text-secondary"></i>
+</div>
+<h4 class="text-lg font-medium text-gray-900 mb-2">Segurança Digital</h4>
+<p class="text-gray-600">Proteção de dados pessoais e compreensão de riscos online.</p>
+</div>
+<div class="bg-purple-50 p-6 rounded-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-purple-100/50 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+<i class="ri-group-line ri-xl text-purple-500"></i>
+</div>
+<h4 class="text-lg font-medium text-gray-900 mb-2">Comunicação</h4>
+<p class="text-gray-600">Interação eficaz em ambientes digitais diversos.</p>
+</div>
+<div class="bg-amber-50 p-6 rounded-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-amber-100/50 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+<i class="ri-lightbulb-line ri-xl text-amber-500"></i>
+</div>
+<h4 class="text-lg font-medium text-gray-900 mb-2">Criação de Conteúdo</h4>
+<p class="text-gray-600">Desenvolvimento e compartilhamento de conteúdo digital.</p>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-6">
+<img src="https://readdy.ai/api/search-image?query=A%20detailed%20illustration%20showing%20the%20concept%20of%20digital%20literacy%20with%20diverse%20people%20of%20different%20ages%20and%20backgrounds%20engaging%20with%20various%20digital%20devices%20and%20platforms.%20The%20image%20should%20show%20people%20analyzing%20information%2C%20communicating%20online%2C%20creating%20digital%20content%2C%20and%20practicing%20online%20safety.%20Include%20visual%20elements%20representing%20critical%20thinking%2C%20information%20evaluation%2C%20and%20digital%20citizenship%20in%20a%20modern%2C%20educational%20style%20with%20soft%20colors%20and%20clean%20design.&width=600&height=400&seq=def1&orientation=landscape" alt="Conceito de Alfabetismo Digital" class="rounded-xl shadow-lg w-full h-auto object-cover">
+<div class="grid grid-cols-2 gap-4">
+<img src="https://readdy.ai/api/search-image?query=Close-up%20of%20hands%20using%20digital%20devices%20for%20learning%2C%20showing%20tablets%20and%20laptops%20with%20educational%20content%2C%20modern%20clean%20setting%20with%20soft%20natural%20lighting&width=300&height=200&seq=def2&orientation=landscape" alt="Aprendizagem Digital" class="rounded-lg shadow-sm w-full h-auto object-cover">
+<img src="https://readdy.ai/api/search-image?query=Group%20collaboration%20in%20a%20digital%20environment%2C%20showing%20people%20of%20different%20ages%20working%20together%20on%20a%20digital%20project%2C%20modern%20office%20or%20learning%20space%20with%20technology&width=300&height=200&seq=def3&orientation=landscape" alt="Colaboração Digital" class="rounded-lg shadow-sm w-full h-auto object-cover">
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="importancia" class="py-20 bg-gray-50 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-blue-50/50 to-transparent"></div>
+<div class="absolute inset-0 opacity-5">
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+<pattern id="pattern-circles" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+<circle id="pattern-circle" cx="10" cy="10" r="2" fill="#3B82F6"></circle>
+</pattern>
+<rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+</svg>
+</div>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Por que o Alfabetismo Digital é Essencial?</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">No mundo atual, o alfabetismo digital deixou de ser um diferencial para se tornar uma necessidade fundamental.</p>
+<div class="mt-8 grid grid-cols-4 gap-4">
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="text-3xl font-bold text-primary mb-2">90%</div>
+<p class="text-gray-600 text-sm">das vagas exigem habilidades digitais</p>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="text-3xl font-bold text-secondary mb-2">65%</div>
+<p class="text-gray-600 text-sm">das crianças terão profissões ainda não existentes</p>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="text-3xl font-bold text-purple-500 mb-2">38%</div>
+<p class="text-gray-600 text-sm">maior salário médio com competências digitais</p>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="text-3xl font-bold text-amber-500 mb-2">24/7</div>
+<p class="text-gray-600 text-sm">mundo conectado exige adaptação constante</p>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<div class="bg-white p-8 rounded-xl shadow-md mb-8">
+<div id="importanciaChart" class="w-full h-80"></div>
+</div>
+<p class="text-gray-600 text-center">Crescimento da demanda por habilidades digitais no mercado de trabalho (2015-2025)</p>
+</div>
+<div>
+<div class="space-y-8">
+<div class="flex gap-5">
+<div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-briefcase-line ri-xl text-primary"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Empregabilidade</h3>
+<p class="text-gray-700">90% das vagas de emprego atuais exigem algum nível de competência digital. Profissionais com estas habilidades têm salários até 38% maiores e mais oportunidades de crescimento.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-government-line ri-xl text-secondary"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Cidadania Digital</h3>
+<p class="text-gray-700">Acesso a serviços públicos, participação democrática e exercício de direitos dependem cada vez mais de habilidades digitais, especialmente após a aceleração digital provocada pela pandemia.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-shield-star-line ri-xl text-purple-500"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Proteção contra Desinformação</h3>
+<p class="text-gray-700">O alfabetismo digital fornece ferramentas para identificar notícias falsas, manipulação e conteúdos enganosos, protegendo indivíduos e fortalecendo a sociedade democrática.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-mental-health-line ri-xl text-amber-500"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Bem-estar Digital</h3>
+<p class="text-gray-700">Compreender como gerenciar o tempo online, proteger a privacidade e manter relacionamentos saudáveis em ambientes digitais é fundamental para o equilíbrio psicológico.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="niveis" class="py-20 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Níveis de Competência Digital</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">O desenvolvimento do alfabetismo digital ocorre em diferentes estágios, cada um com suas próprias características e habilidades.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-blue-50 rounded-xl p-8 shadow-sm hover:shadow-md transition relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-blue-100 rounded-bl-full -mr-12 -mt-12 transition-all duration-300 group-hover:scale-110"></div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+<i class="ri-seedling-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Nível Básico</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Operação fundamental de dispositivos digitais</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Navegação básica na internet</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Utilização de e-mail e mensagens</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Compreensão de riscos básicos de segurança</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Busca simples de informações</span>
+</li>
+</ul>
+<div class="mt-8">
+<span class="inline-block bg-blue-100 text-primary px-4 py-2 rounded-full text-sm font-medium">Iniciante</span>
+</div>
+</div>
+</div>
+<div class="bg-green-50 rounded-xl p-8 shadow-sm hover:shadow-md transition relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-green-100 rounded-bl-full -mr-12 -mt-12 transition-all duration-300 group-hover:scale-110"></div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+<i class="ri-plant-line ri-2x text-secondary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Nível Intermediário</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Uso eficiente de aplicativos e software</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Avaliação crítica de fontes de informação</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Criação de conteúdo digital básico</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Configurações avançadas de privacidade</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Resolução de problemas técnicos comuns</span>
+</li>
+</ul>
+<div class="mt-8">
+<span class="inline-block bg-green-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">Competente</span>
+</div>
+</div>
+</div>
+<div class="bg-purple-50 rounded-xl p-8 shadow-sm hover:shadow-md transition relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-purple-100 rounded-bl-full -mr-12 -mt-12 transition-all duration-300 group-hover:scale-110"></div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+<i class="ri-tree-line ri-2x text-purple-500"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Nível Avançado</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-purple-500 mt-1 mr-2"></i>
+<span>Programação e desenvolvimento de soluções</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-purple-500 mt-1 mr-2"></i>
+<span>Análise de dados e visualização</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-purple-500 mt-1 mr-2"></i>
+<span>Produção de conteúdo digital complexo</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-purple-500 mt-1 mr-2"></i>
+<span>Segurança digital avançada</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-purple-500 mt-1 mr-2"></i>
+<span>Mentoria e capacitação de outros</span>
+</li>
+</ul>
+<div class="mt-8">
+<span class="inline-block bg-purple-100 text-purple-500 px-4 py-2 rounded-full text-sm font-medium">Especialista</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 bg-gray-50 rounded-xl p-8 shadow-sm">
+<h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Avalie seu Nível de Alfabetismo Digital</h3>
+<div class="max-w-3xl mx-auto">
+<div class="mb-8">
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Básico</span>
+<span class="text-gray-600">Intermediário</span>
+<span class="text-gray-600">Avançado</span>
+</div>
+<input type="range" min="1" max="100" value="50" class="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer">
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<h4 class="text-lg font-medium text-gray-900 mb-4">Responda às perguntas:</h4>
+<div class="space-y-4">
+<div>
+<input type="checkbox" id="skill1" class="custom-checkbox">
+<label for="skill1" class="custom-checkbox-label">Sei identificar notícias falsas</label>
+</div>
+<div>
+<input type="checkbox" id="skill2" class="custom-checkbox">
+<label for="skill2" class="custom-checkbox-label">Consigo configurar privacidade nas redes sociais</label>
+</div>
+<div>
+<input type="checkbox" id="skill3" class="custom-checkbox">
+<label for="skill3" class="custom-checkbox-label">Sei criar e gerenciar senhas seguras</label>
+</div>
+<div>
+<input type="checkbox" id="skill4" class="custom-checkbox">
+<label for="skill4" class="custom-checkbox-label">Consigo resolver problemas técnicos básicos</label>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<h4 class="text-lg font-medium text-gray-900 mb-4">Recomendações Personalizadas</h4>
+<p class="text-gray-700 mb-4">Com base na sua autoavaliação, recomendamos os seguintes recursos:</p>
+<ul class="space-y-2 text-gray-700">
+<li class="flex items-start">
+<i class="ri-arrow-right-circle-line text-primary mt-1 mr-2"></i>
+<span>Curso básico de segurança digital</span>
+</li>
+<li class="flex items-start">
+<i class="ri-arrow-right-circle-line text-primary mt-1 mr-2"></i>
+<span>Guia de verificação de informações</span>
+</li>
+<li class="flex items-start">
+<i class="ri-arrow-right-circle-line text-primary mt-1 mr-2"></i>
+<span>Workshop de ferramentas de produtividade</span>
+</li>
+</ul>
+<button class="mt-6 bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-blue-600 transition whitespace-nowrap">Ver Todos os Recursos</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="recursos" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Recursos Educacionais</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Explore nossa seleção de recursos gratuitos e de alta qualidade para desenvolver suas competências digitais.</p>
+</div>
+<div class="mb-10">
+<div class="flex flex-wrap justify-center gap-4 mb-8">
+<button class="resource-filter active bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition whitespace-nowrap" data-filter="all">Todos</button>
+<button class="resource-filter bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition whitespace-nowrap" data-filter="videos">Vídeos</button>
+<button class="resource-filter bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition whitespace-nowrap" data-filter="cursos">Cursos</button>
+<button class="resource-filter bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition whitespace-nowrap" data-filter="ferramentas">Ferramentas</button>
+<button class="resource-filter bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition whitespace-nowrap" data-filter="ebooks">E-books</button>
+</div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="videos">
+<div class="aspect-video relative">
+<iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/F3w1GcwwPrM" title="Segurança Digital para Iniciantes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-red-100 text-red-500 px-3 py-1 rounded-full text-xs font-medium">Vídeo</span>
+<span class="text-green-500 font-medium text-sm">Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Segurança Digital para Iniciantes</h3>
+<p class="text-gray-600 mb-4">Aprenda os fundamentos da segurança online, proteção de dados e navegação segura na internet.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-time-line mr-2 text-gray-500"></i>
+<span class="text-gray-500 text-sm">15 minutos</span>
+</div>
+<a href="https://www.youtube.com/watch?v=F3w1GcwwPrM" target="_blank" class="text-primary font-medium hover:text-blue-700 transition flex items-center">
+Assistir <i class="ri-external-link-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="cursos">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20modern%20e-learning%20platform%20interface%20showing%20a%20digital%20literacy%20course%20with%20clear%20navigation%2C%20progress%20tracking%2C%20and%20interactive%20elements.%20The%20design%20should%20be%20clean%20and%20professional%20with%20educational%20icons%20and%20a%20welcoming%20color%20scheme.&width=600&height=400&seq=res2&orientation=landscape" alt="Curso Completo de Alfabetismo Digital" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">Curso</span>
+<span class="text-green-500 font-medium text-sm">Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Curso Completo de Alfabetismo Digital</h3>
+<p class="text-gray-600 mb-4">Curso completo da Fundação Bradesco sobre competências digitais básicas e avançadas.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-time-line mr-2 text-gray-500"></i>
+<span class="text-gray-500 text-sm">40 horas</span>
+</div>
+<a href="https://www.ev.org.br/cursos/competencias-digitais" target="_blank" class="text-primary font-medium hover:text-blue-700 transition flex items-center">
+Matricular <i class="ri-external-link-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="ferramentas">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20collection%20of%20digital%20tools%20and%20apps%20for%20fact-checking%20and%20information%20verification%2C%20displayed%20on%20multiple%20devices.%20The%20image%20should%20show%20various%20verification%20tools%20in%20use%20with%20clear%20interfaces%20and%20professional%20design.&width=600&height=400&seq=res3&orientation=landscape" alt="Kit de Ferramentas Digitais" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-purple-100 text-purple-500 px-3 py-1 rounded-full text-xs font-medium">Ferramentas</span>
+<span class="text-green-500 font-medium text-sm">Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Kit de Ferramentas Digitais</h3>
+<p class="text-gray-600 mb-4">Coleção de ferramentas essenciais para produtividade e aprendizado digital.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<a href="https://www.canva.com" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm transition">Canva</a>
+<a href="https://workspace.google.com" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm transition">Google Workspace</a>
+<a href="https://www.notion.so" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm transition">Notion</a>
+</div>
+<a href="#" class="text-primary font-medium hover:text-blue-700 transition flex items-center">
+Ver todas as ferramentas <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="videos">
+<div class="aspect-video relative">
+<iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/ZY7_vxwrEr0" title="Produtividade Digital" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-red-100 text-red-500 px-3 py-1 rounded-full text-xs font-medium">Vídeo</span>
+<span class="text-green-500 font-medium text-sm">Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Produtividade Digital</h3>
+<p class="text-gray-600 mb-4">Aprenda a organizar sua vida digital e aumentar sua produtividade com ferramentas gratuitas.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-time-line mr-2 text-gray-500"></i>
+<span class="text-gray-500 text-sm">20 minutos</span>
+</div>
+<a href="https://www.youtube.com/watch?v=ZY7_vxwrEr0" target="_blank" class="text-primary font-medium hover:text-blue-700 transition flex items-center">
+Assistir <i class="ri-external-link-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="ebooks">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20e-book%20cover%20about%20digital%20citizenship%20and%20online%20safety%2C%20featuring%20modern%20design%20elements%20and%20security-related%20icons.%20The%20cover%20should%20look%20professional%20and%20educational%20with%20a%20clean%2C%20modern%20layout.&width=600&height=400&seq=res4&orientation=landscape" alt="E-book Cidadania Digital" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-amber-100 text-amber-500 px-3 py-1 rounded-full text-xs font-medium">E-book</span>
+<span class="text-green-500 font-medium text-sm">Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Guia de Cidadania Digital</h3>
+<p class="text-gray-600 mb-4">E-book completo sobre direitos e responsabilidades no ambiente digital.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-file-pdf-line mr-2 text-gray-500"></i>
+<span class="text-gray-500 text-sm">PDF - 50 páginas</span>
+</div>
+<a href="https://www.safernet.org.br/site/themes/sn/files/citizen_manual.pdf" target="_blank" class="text-primary font-medium hover:text-blue-700 transition flex items-center">
+Download <i class="ri-download-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="cursos">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20modern%20online%20course%20interface%20focused%20on%20digital%20marketing%20and%20social%20media%2C%20showing%20various%20social%20platforms%20and%20analytics%20tools.%20The%20design%20should%20be%20professional%20and%20educational%20with%20clear%20navigation%20elements.&width=600&height=400&seq=res5&orientation=landscape" alt="Curso de Marketing Digital" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">Curso</span>
+<span class="text-green-500 font-medium text-sm">Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Marketing Digital Básico</h3>
+<p class="text-gray-600 mb-4">Curso introdutório do Google sobre marketing digital e presença online.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-time-line mr-2 text-gray-500"></i>
+<span class="text-gray-500 text-sm">30 horas</span>
+</div>
+<a href="https://skillshop.exceedlms.com/student/catalog/browse" target="_blank" class="text-primary font-medium hover:text-blue-700 transition flex items-center">
+Matricular <i class="ri-external-link-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a href="#" class="inline-block bg-white border border-primary text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">Ver Todos os Recursos</a>
+</div>
+</div>
+</section>
+</section>
+<section id="depoimentos" class="py-20 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Depoimentos de Especialistas</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Ouça o que os especialistas em educação e tecnologia têm a dizer sobre a importância do alfabetismo digital.</p>
+</div>
+<div class="relative">
+<div class="testimonial-slider overflow-hidden">
+<div class="testimonial-track flex transition-transform duration-300" style="transform: translateX(0);">
+<div class="testimonial-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4">
+<div class="bg-gray-50 rounded-xl p-8 shadow-sm h-full">
+<div class="flex items-center mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20female%20education%20technology%20expert%20with%20glasses%20and%20a%20confident%20smile%2C%20wearing%20professional%20attire%20against%20a%20neutral%20background%2C%20high%20quality%20portrait%20photo&width=200&height=200&seq=test1&orientation=squarish" alt="Dra. Mariana Costa" class="w-full h-full object-cover">
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Dra. Mariana Costa</h3>
+<p class="text-gray-600">Pesquisadora em Educação Digital - USP</p>
+</div>
+</div>
+<blockquote class="text-gray-700 mb-6">
+"O alfabetismo digital não é apenas sobre saber usar tecnologia, mas sobre desenvolver um conjunto de competências críticas que permitem ao indivíduo navegar, avaliar e criar no ambiente digital com confiança e segurança. É uma habilidade fundamental para o século XXI, tão importante quanto a alfabetização tradicional."
+</blockquote>
+<div class="flex text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<div class="testimonial-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4">
+<div class="bg-gray-50 rounded-xl p-8 shadow-sm h-full">
+<div class="flex items-center mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20male%20technology%20educator%20with%20short%20dark%20hair%20and%20a%20friendly%20expression%2C%20wearing%20a%20casual%20business%20shirt%20against%20a%20neutral%20background%2C%20high%20quality%20portrait%20photo&width=200&height=200&seq=test2&orientation=squarish" alt="Prof. Ricardo Mendes" class="w-full h-full object-cover">
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Prof. Ricardo Mendes</h3>
+<p class="text-gray-600">Diretor do Instituto de Tecnologia Educacional</p>
+</div>
+</div>
+<blockquote class="text-gray-700 mb-6">
+"Estamos vivendo um momento em que o alfabetismo digital deixou de ser um diferencial para se tornar uma necessidade básica. Empresas, governos e instituições educacionais precisam trabalhar juntos para garantir que todos tenham acesso a essas competências essenciais para a cidadania plena no mundo contemporâneo."
+</blockquote>
+<div class="flex text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<div class="testimonial-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4">
+<div class="bg-gray-50 rounded-xl p-8 shadow-sm h-full">
+<div class="flex items-center mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20female%20technology%20inclusion%20specialist%20with%20curly%20hair%20and%20a%20warm%20smile%2C%20wearing%20casual%20professional%20attire%20against%20a%20neutral%20background%2C%20high%20quality%20portrait%20photo&width=200&height=200&seq=test3&orientation=squarish" alt="Dra. Camila Oliveira" class="w-full h-full object-cover">
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Dra. Camila Oliveira</h3>
+<p class="text-gray-600">Especialista em Inclusão Digital</p>
+</div>
+</div>
+<blockquote class="text-gray-700 mb-6">
+"A inclusão digital vai além do acesso à tecnologia. Precisamos garantir que todas as pessoas, independentemente de idade, condição socioeconômica ou localização geográfica, possam desenvolver as habilidades necessárias para participar plenamente da sociedade digital, exercendo sua cidadania e aproveitando oportunidades."
+</blockquote>
+<div class="flex text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="testimonial-prev absolute top-1/2 left-0 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center z-10 hover:bg-gray-50 transition">
+<i class="ri-arrow-left-s-line ri-lg text-gray-700"></i>
+</button>
+<button class="testimonial-next absolute top-1/2 right-0 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center z-10 hover:bg-gray-50 transition">
+<i class="ri-arrow-right-s-line ri-lg text-gray-700"></i>
+</button>
+</div>
+<div class="mt-16 bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-8 shadow-sm">
+<div class="grid md:grid-cols-2 gap-8 items-center">
+<div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Junte-se à Nossa Comunidade</h3>
+<p class="text-gray-700 mb-6">Participe de nossa comunidade de educadores, estudantes e entusiastas comprometidos com o desenvolvimento do alfabetismo digital no Brasil.</p>
+<ul class="space-y-3 text-gray-700 mb-8">
+<li class="flex items-start">
+<i class="ri-check-line text-primary mt-1 mr-2"></i>
+<span>Acesso a recursos exclusivos e atualizados</span>
+</li>
+<li class="flex items-start">
+<i class="ri-check-line text-primary mt-1 mr-2"></i>
+<span>Participação em eventos e webinars gratuitos</span>
+</li>
+<li class="flex items-start">
+<i class="ri-check-line text-primary mt-1 mr-2"></i>
+<span>Troca de experiências com especialistas e pares</span>
+</li>
+<li class="flex items-start">
+<i class="ri-check-line text-primary mt-1 mr-2"></i>
+<span>Certificados de participação em atividades</span>
+</li>
+</ul>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#" class="bg-primary text-white px-6 py-3 rounded-button font-medium shadow-md hover:bg-blue-600 transition whitespace-nowrap">Inscrever-se Gratuitamente</a>
+<a href="#" class="bg-white text-primary border border-primary px-6 py-3 rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">Saiba Mais</a>
+</div>
+</div>
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20diverse%20group%20of%20people%20of%20different%20ages%20and%20backgrounds%20collaborating%20and%20learning%20together%20in%20a%20modern%20digital%20community%20setting.%20The%20image%20should%20show%20people%20sharing%20knowledge%2C%20using%20digital%20devices%2C%20and%20engaging%20in%20educational%20activities%20in%20a%20bright%2C%20welcoming%20environment%20that%20suggests%20community%20and%20collaboration.&width=600&height=400&seq=comm1&orientation=landscape" alt="Comunidade de Alfabetismo Digital" class="rounded-xl shadow-lg w-full">
+<div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-md">
+<div class="flex items-center">
+<div class="flex -space-x-2 mr-4">
+<div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20portrait%20of%20a%20young%20person%2C%20neutral%20background%2C%20high%20quality&width=100&height=100&seq=mem1&orientation=squarish" alt="Membro" class="w-full h-full object-cover">
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20portrait%20of%20a%20middle-aged%20person%2C%20neutral%20background%2C%20high%20quality&width=100&height=100&seq=mem2&orientation=squarish" alt="Membro" class="w-full h-full object-cover">
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20portrait%20of%20an%20older%20person%2C%20neutral%20background%2C%20high%20quality&width=100&height=100&seq=mem3&orientation=squarish" alt="Membro" class="w-full h-full object-cover">
+</div>
+</div>
+<div>
+<p class="text-gray-900 font-medium">+5.000 membros</p>
+<p class="text-gray-500 text-sm">em todo o Brasil</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="feedback" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sua Opinião é Importante</h2>
+<p class="text-lg text-gray-600 mb-8">Ajude-nos a melhorar nossos recursos e conteúdos sobre alfabetismo digital compartilhando sua experiência.</p>
+<form class="space-y-6">
+<div>
+<label for="name" class="block text-gray-700 font-medium mb-2">Nome Completo</label>
+<input type="text" id="name" class="w-full px-4 py-3 rounded bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+</div>
+<div>
+<label for="email" class="block text-gray-700 font-medium mb-2">E-mail</label>
+<input type="email" id="email" class="w-full px-4 py-3 rounded bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+</div>
+<div>
+<label class="block text-gray-700 font-medium mb-2">Como você avalia nosso conteúdo?</label>
+<div class="flex space-x-4">
+<div class="flex items-center">
+<input type="radio" id="rating-5" name="rating" class="hidden">
+<label for="rating-5" class="cursor-pointer flex items-center">
+<div class="w-5 h-5 rounded-full border border-gray-300 mr-2 flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+</div>
+<span>Excelente</span>
+</label>
+</div>
+<div class="flex items-center">
+<input type="radio" id="rating-4" name="rating" class="hidden">
+<label for="rating-4" class="cursor-pointer flex items-center">
+<div class="w-5 h-5 rounded-full border border-gray-300 mr-2 flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+</div>
+<span>Bom</span>
+</label>
+</div>
+<div class="flex items-center">
+<input type="radio" id="rating-3" name="rating" class="hidden">
+<label for="rating-3" class="cursor-pointer flex items-center">
+<div class="w-5 h-5 rounded-full border border-gray-300 mr-2 flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+</div>
+<span>Regular</span>
+</label>
+</div>
+</div>
+</div>
+<div>
+<label for="feedback" class="block text-gray-700 font-medium mb-2">Seu Feedback</label>
+<textarea id="feedback" rows="4" class="w-full px-4 py-3 rounded bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"></textarea>
+</div>
+<div class="flex items-center">
+<input type="checkbox" id="newsletter" class="custom-checkbox">
+<label for="newsletter" class="custom-checkbox-label">Desejo receber novidades sobre alfabetismo digital</label>
+</div>
+<div>
+<button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium shadow-lg hover:bg-blue-600 transition whitespace-nowrap">Enviar Feedback</button>
+</div>
+</form>
+</div>
+<div class="flex flex-col items-center">
+<div class="mb-8 text-center">
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Teste seus Conhecimentos</h3>
+<p class="text-gray-700 mb-6">Escaneie o QR Code abaixo para acessar nosso quiz interativo sobre alfabetismo digital no Kahoot!</p>
+<div class="bg-white p-6 rounded-xl shadow-md inline-block mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%20clear%2C%20high-contrast%20QR%20code%20on%20a%20white%20background.%20The%20QR%20code%20should%20be%20black%20and%20white%2C%20centered%20in%20the%20frame%20with%20adequate%20white%20space%20around%20it.%20The%20image%20should%20be%20clean%20and%20easily%20scannable.&width=200&height=200&seq=qr1&orientation=squarish" alt="QR Code para Quiz" class="w-48 h-48">
+</div>
+<p class="text-gray-600 text-sm">Ou acesse diretamente pelo link: <a href="#" class="text-primary hover:underline">kahoot.it/alfabetismodigital</a></p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-md w-full max-w-md">
+<h4 class="text-xl font-semibold text-gray-900 mb-4">O que você vai aprender no quiz:</h4>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Conceitos fundamentais de alfabetismo digital</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Dicas de segurança e privacidade online</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Como identificar notícias falsas e desinformação</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Ferramentas digitais essenciais para o dia a dia</span>
+</li>
+</ul>
+<div class="mt-6 bg-blue-50 p-4 rounded-lg">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+<i class="ri-award-line ri-lg text-primary"></i>
+</div>
+<div>
+<h5 class="font-medium text-gray-900">Certificado de Participação</h5>
+<p class="text-gray-600 text-sm">Ao completar o quiz com pelo menos 70% de acertos</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-16">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-4 gap-12">
+<div>
+<a href="#" class="h-12 mb-6 inline-block">
+<img src="https://static.readdy.ai/image/66e564e1cc0fd1850066a7c6b0396ffd/80bc5af3d9d5f3bf5fa5a0b1b3bcfbb3.png" alt="UNIFAGOC" class="h-full brightness-0 invert">
+</a>
+<p class="text-gray-400 mb-6">Promovendo o desenvolvimento de competências digitais para todos, contribuindo para uma sociedade mais inclusiva e preparada para os desafios do século XXI.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-youtube-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Links Rápidos</h3>
+<ul class="space-y-3">
+<li><a href="#definicao" class="text-gray-400 hover:text-white transition">O que é Alfabetismo Digital</a></li>
+<li><a href="#importancia" class="text-gray-400 hover:text-white transition">Importância</a></li>
+<li><a href="#niveis" class="text-gray-400 hover:text-white transition">Níveis de Competência</a></li>
+<li><a href="#recursos" class="text-gray-400 hover:text-white transition">Recursos Educacionais</a></li>
+<li><a href="#depoimentos" class="text-gray-400 hover:text-white transition">Depoimentos</a></li>
+<li><a href="#feedback" class="text-gray-400 hover:text-white transition">Feedback</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Recursos</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition">Cursos Gratuitos</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Guias e Tutoriais</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Ferramentas Recomendadas</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Biblioteca Digital</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Webinars e Eventos</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Comunidade</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Newsletter</h3>
+<p class="text-gray-400 mb-4">Receba novidades, recursos gratuitos e dicas sobre alfabetismo digital.</p>
+<form class="mb-6">
+<div class="flex">
+<input type="email" placeholder="Seu e-mail" class="w-full px-4 py-2 rounded-l bg-gray-800 border border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition text-white">
+<button type="submit" class="bg-primary text-white px-4 py-2 rounded-r font-medium hover:bg-blue-600 transition whitespace-nowrap">Inscrever</button>
+</div>
+</form>
+<div>
+<h4 class="text-sm font-semibold uppercase text-gray-500 mb-3">Parceiros</h4>
+<div class="flex space-x-4">
+<i class="ri-google-fill ri-lg text-gray-400"></i>
+<i class="ri-microsoft-fill ri-lg text-gray-400"></i>
+<i class="ri-amazon-fill ri-lg text-gray-400"></i>
+<i class="ri-netflix-fill ri-lg text-gray-400"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 mb-4 md:mb-0">© 2025 Alfabetismo Digital. Todos os direitos reservados.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-500 hover:text-white transition">Política de Privacidade</a>
+<a href="#" class="text-gray-500 hover:text-white transition">Termos de Uso</a>
+<a href="#" class="text-gray-500 hover:text-white transition">Contato</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-blue-600">
+<i class="ri-arrow-up-line ri-lg"></i>
+</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuButton.addEventListener('click', function() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('animate-slide-down');
+    this.querySelector('i').classList.toggle('ri-menu-line');
+    this.querySelector('i').classList.toggle('ri-close-line');
+  });
+  
+  // Fechar menu ao clicar em um link
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton.querySelector('i').classList.add('ri-menu-line');
+      mobileMenuButton.querySelector('i').classList.remove('ri-close-line');
+    });
+  });
+});
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Back to Top Button
+const backToTopButton = document.getElementById('back-to-top');
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopButton.classList.remove('opacity-0', 'invisible');
+backToTopButton.classList.add('opacity-100', 'visible');
+} else {
+backToTopButton.classList.remove('opacity-100', 'visible');
+backToTopButton.classList.add('opacity-0', 'invisible');
+}
+});
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Resource Filtering
+const resourceFilters = document.querySelectorAll('.resource-filter');
+const resourceItems = document.querySelectorAll('.resource-item');
+resourceFilters.forEach(filter => {
+filter.addEventListener('click', function() {
+// Remove active class from all filters
+resourceFilters.forEach(f => {
+f.classList.remove('active', 'bg-primary', 'text-white');
+f.classList.add('bg-white', 'text-gray-700');
+});
+// Add active class to clicked filter
+this.classList.add('active', 'bg-primary', 'text-white');
+this.classList.remove('bg-white', 'text-gray-700');
+const category = this.getAttribute('data-filter');
+resourceItems.forEach(item => {
+if (category === 'all' || item.getAttribute('data-category') === category) {
+item.style.display = 'block';
+} else {
+item.style.display = 'none';
+}
+});
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Testimonial Slider
+// Atualizar o slider de depoimentos
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.testimonial-track');
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevButton = document.querySelector('.testimonial-prev');
+  const nextButton = document.querySelector('.testimonial-next');
+  
+  let currentIndex = 0;
+  let slidesToShow = 1;
+  
+  function updateSlidesToShow() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= 1024) {
+      slidesToShow = 3;
+    } else if (windowWidth >= 768) {
+      slidesToShow = 2;
+    } else {
+      slidesToShow = 1;
+    }
+    updateSliderPosition();
+  }
+  
+  function updateSliderPosition() {
+    const slideWidth = slides[0].offsetWidth;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    
+    // Desabilitar botões quando necessário
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex >= slides.length - slidesToShow;
+  }
+  
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) currentIndex--;
+    updateSliderPosition();
+  });
+  
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < slides.length - slidesToShow) currentIndex++;
+    updateSliderPosition();
+  });
+  
+  // Redimensionamento responsivo
+  window.addEventListener('resize', () => {
+    updateSlidesToShow();
+  });
+  
+  // Inicialização
+  updateSlidesToShow();
+});
+const track = document.querySelector('.testimonial-track');
+const slides = document.querySelectorAll('.testimonial-slide');
+const prevButton = document.querySelector('.testimonial-prev');
+const nextButton = document.querySelector('.testimonial-next');
+let currentIndex = 0;
+let slideWidth = slides[0].getBoundingClientRect().width;
+let slidesToShow = 1;
+function updateSlidesToShow() {
+if (window.innerWidth >= 1024) {
+slidesToShow = 3;
+} else if (window.innerWidth >= 768) {
+slidesToShow = 2;
+} else {
+slidesToShow = 1;
+}
+slideWidth = slides[0].getBoundingClientRect().width;
+updateSliderPosition();
+}
+function updateSliderPosition() {
+track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
+prevButton.addEventListener('click', function() {
+if (currentIndex > 0) {
+currentIndex--;
+updateSliderPosition();
+}
+});
+nextButton.addEventListener('click', function() {
+if (currentIndex < slides.length - slidesToShow) {
+currentIndex++;
+updateSliderPosition();
+}
+});
+window.addEventListener('resize', updateSlidesToShow);
+updateSlidesToShow();
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Custom Radio Buttons
+const radioButtons = document.querySelectorAll('input[type="radio"]');
+radioButtons.forEach(radio => {
+radio.addEventListener('change', function() {
+// Hide all indicators
+document.querySelectorAll('input[name="' + this.name + '"] + label .w-3').forEach(indicator => {
+indicator.classList.add('hidden');
+});
+// Show indicator for checked radio
+if (this.checked) {
+this.nextElementSibling.querySelector('.w-3').classList.remove('hidden');
+}
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Importance Chart
+const chartDom = document.getElementById('importanciaChart');
+const myChart = echarts.init(chartDom);
+const option = {
+animation: false,
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+textStyle: {
+color: '#1f2937'
+}
+},
+legend: {
+data: ['Vagas Exigindo Habilidades Digitais', 'Diferença Salarial (%)'],
+textStyle: {
+color: '#1f2937'
+}
+},
+grid: {
+left: '3%',
+right: '4%',
+bottom: '3%',
+containLabel: true
+},
+xAxis: {
+type: 'category',
+boundaryGap: false,
+data: ['2015', '2017', '2019', '2021', '2023', '2025'],
+axisLabel: {
+color: '#1f2937'
+}
+},
+yAxis: [
+{
+type: 'value',
+name: 'Vagas (%)',
+position: 'left',
+axisLabel: {
+formatter: '{value}%',
+color: '#1f2937'
+}
+},
+{
+type: 'value',
+name: 'Diferença Salarial (%)',
+position: 'right',
+axisLabel: {
+formatter: '{value}%',
+color: '#1f2937'
+}
+}
+],
+series: [
+{
+name: 'Vagas Exigindo Habilidades Digitais',
+type: 'line',
+smooth: true,
+lineStyle: {
+width: 3,
+color: 'rgba(87, 181, 231, 1)'
+},
+areaStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [
+{
+offset: 0,
+color: 'rgba(87, 181, 231, 0.2)'
+},
+{
+offset: 1,
+color: 'rgba(87, 181, 231, 0.05)'
+}
+]
+}
+},
+symbol: 'none',
+data: [45, 55, 68, 78, 85, 90]
+},
+{
+name: 'Diferença Salarial (%)',
+type: 'line',
+yAxisIndex: 1,
+smooth: true,
+lineStyle: {
+width: 3,
+color: 'rgba(141, 211, 199, 1)'
+},
+areaStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [
+{
+offset: 0,
+color: 'rgba(141, 211, 199, 0.2)'
+},
+{
+offset: 1,
+color: 'rgba(141, 211, 199, 0.05)'
+}
+]
+}
+},
+symbol: 'none',
+data: [15, 20, 25, 30, 35, 38]
+}
+]
+};
+myChart.setOption(option);
+window.addEventListener('resize', function() {
+myChart.resize();
+});
+});
+</script>
+</body>
+</html>
