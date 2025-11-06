@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Bullying: Prevenção e Conscientização</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#DC2626',secondary:'#F59E0B'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+/* Mantendo os estilos existentes, mas alterando a cor primária para um tom mais impactante (vermelho) no CSS customizado */
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+scroll-behavior: smooth;
+}
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #DC2626; /* Primary: Red */
+cursor: pointer;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.custom-checkbox {
+display: none;
+}
+.custom-checkbox-label {
+position: relative;
+padding-left: 30px;
+cursor: pointer;
+}
+.custom-checkbox-label:before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+width: 20px;
+height: 20px;
+border: 2px solid #DC2626; /* Primary: Red */
+border-radius: 4px;
+background-color: white;
+}
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-bottom {
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+.hero-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 20;
+  padding: 2rem 0;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 80vh;
+    text-align: center;
+  }
+  
+  .hero-bg {
+    background-position: 60% center;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-buttons a {
+    width: 100%;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #DC2626; /* Primary: Red */
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+@media (min-width: 768px) {
+  .form-half {
+    width: calc(50% - 0.75rem);
+  }
+}
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-cards {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: #DC2626; /* Primary: Red */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #B91C1C; /* Darker Red */
+}
+
+.btn-outline {
+  border: 1px solid #DC2626; /* Primary: Red */
+  color: #DC2626; /* Primary: Red */
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: #f8fafc;
+}
+
+@media (max-width: 767px) {
+  .btn {
+    width: 100%;
+    padding: 0.75rem;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+.custom-checkbox:checked + .custom-checkbox-label:before {
+background-color: #DC2626; /* Primary: Red */
+}
+.custom-checkbox:checked + .custom-checkbox-label:after {
+content: '';
+position: absolute;
+left: 7px;
+top: 3px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 16px;
+width: 16px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #DC2626; /* Primary: Red */
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center py-4">
+<div class="flex items-center">
+<a href="#" class="h-12">
+<img src="https://static.readdy.ai/image/66e564e1cc0fd1850066a7c6b0396ffd/80bc5af3d9d5f3bf5fa5a0b1b3bcfbb3.png" alt="UNIFAGOC" class="h-full">
+</a>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="#definicao" class="text-gray-700 hover:text-primary font-medium transition">O que é?</a>
+<a href="#importancia" class="text-gray-700 hover:text-primary font-medium transition">Impacto</a>
+<a href="#niveis" class="text-gray-700 hover:text-primary font-medium transition">Tipos</a>
+<a href="#orientacao" class="text-gray-700 hover:text-primary font-medium transition">Orientação</a>
+<a href="#recursos" class="text-gray-700 hover:text-primary font-medium transition">Ajuda</a>
+<a href="#depoimentos" class="text-gray-700 hover:text-primary font-medium transition">Histórias</a>
+<a href="#feedback" class="text-gray-700 hover:text-primary font-medium transition">Fale Conosco</a>
+</nav>
+<div class="md:hidden flex items-center">
+<button id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="md:hidden hidden pb-4">
+<div class="flex flex-col space-y-3">
+<a href="#definicao" class="text-gray-700 hover:text-primary font-medium transition">O que é?</a>
+<a href="#importancia" class="text-gray-700 hover:text-primary font-medium transition">Impacto</a>
+<a href="#niveis" class="text-gray-700 hover:text-primary font-medium transition">Tipos</a>
+<a href="#orientacao" class="text-gray-700 hover:text-primary font-medium transition">Orientação</a>
+<a href="#recursos" class="text-gray-700 hover:text-primary font-medium transition">Ajuda</a>
+<a href="#depoimentos" class="text-gray-700 hover:text-primary font-medium transition">Histórias</a>
+<a href="#feedback" class="text-gray-700 hover:text-primary font-medium transition">Fale Conosco</a>
+</div>
+</div>
+</div>
+</header>
+<section class="relative">
+<div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Teenagers%20supporting%20a%20friend%20who%20is%20feeling%20isolated%20or%20sad%20in%20a%20school%20environment.%20The%20image%20should%20focus%20on%20empathy%2C%20anti-bullying%20and%20support%20with%20soft%2C%20warm%20lighting%20and%20a%20gradient%20transitioning%20from%20white%20to%20a%20light%20orange%20on%20the%20right%20side%20for%20text%20on%20the%20left.&width=1920&height=800&seq=hero1&orientation=landscape');"></div>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+<div class="flex flex-col items-start justify-center min-h-[600px] py-20">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">Bullying: Diga Não!</h1>
+<p class="text-xl text-gray-700 mb-8">Prevenção, Ajuda e Conscientização para um ambiente mais seguro e respeitoso para todos.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#definicao" class="bg-primary text-white px-8 py-3 rounded-button font-medium shadow-lg hover:bg-red-700 transition whitespace-nowrap">Entenda o Problema</a>
+<a href="#recursos" class="bg-white text-primary border border-primary px-8 py-3 rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">Preciso de Ajuda</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="definicao" class="py-20 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">O que é Bullying?</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Compreenda a definição, suas características e a gravidade de suas consequências.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="order-2 md:order-1">
+<h3 class="text-2xl font-semibold text-gray-900 mb-6">Definição e Características</h3>
+<p class="text-gray-700 mb-6">O bullying é definido como um conjunto de atitudes de violência física ou psicológica, intencionais e repetitivas, que ocorrem sem motivação evidente, praticadas por um ou mais indivíduos contra uma vítima. É caracterizado pela **desigualdade de poder** entre as partes.</p>
+<div class="bg-red-50 rounded-lg p-6 mb-6">
+<h4 class="text-lg font-semibold text-gray-900 mb-3">Sinais de Alerta</h4>
+<ul class="space-y-3">
+<li class="flex items-center">
+<i class="ri-arrow-right-line text-primary mr-3"></i>
+<span>Mudanças repentinas de humor ou comportamento</span>
+</li>
+<li class="flex items-center">
+<i class="ri-arrow-right-line text-primary mr-3"></i>
+<span>Dificuldade para dormir ou pesadelos frequentes</span>
+</li>
+<li class="flex items-center">
+<i class="ri-arrow-right-line text-primary mr-3"></i>
+<span>Perda de pertences ou danos a materiais escolares/pessoais</span>
+</li>
+</ul>
+</div>
+<p class="text-gray-700 mb-8">É crucial diferenciar o bullying de um simples conflito ou briga ocasional. O bullying envolve **repetição** e a intenção de **intimidar** ou **magoar**, causando sofrimento à vítima. Pode ocorrer na escola, no trabalho, ou online (Cyberbullying).</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-red-50 p-6 rounded-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-red-100/50 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+<i class="ri-eye-line ri-xl text-primary"></i>
+</div>
+<h4 class="text-lg font-medium text-gray-900 mb-2">Agressão Repetida</h4>
+<p class="text-gray-600">Ações negativas e intencionais que ocorrem de forma contínua.</p>
+</div>
+<div class="bg-amber-50 p-6 rounded-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-amber-100/50 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+<i class="ri-wifi-line ri-xl text-secondary"></i>
+</div>
+<h4 class="text-lg font-medium text-gray-900 mb-2">Cyberbullying</h4>
+<p class="text-gray-600">Ocorre em plataformas digitais, com alcance 24/7 e anonimato.</p>
+</div>
+<div class="bg-pink-50 p-6 rounded-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-pink-100/50 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+<i class="ri-group-line ri-xl text-pink-500"></i>
+</div>
+<h4 class="text-lg font-medium text-gray-900 mb-2">Assédio Social</h4>
+<p class="text-gray-600">Exclusão, difamação e espalhar boatos maliciosos.</p>
+</div>
+<div class="bg-gray-100 p-6 rounded-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-gray-200/50 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-4 relative z-10">
+<i class="ri-psychology-line ri-xl text-gray-700"></i>
+</div>
+<h4 class="text-lg font-medium text-gray-900 mb-2">Desequilíbrio de Poder</h4>
+<p class="text-gray-600">O agressor tem mais poder físico, social ou emocional que a vítima.</p>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-6">
+<img src="https://readdy.ai/api/search-image?query=A%20dramatic%20illustration%20showing%20a%20child%20or%20teenager%20isolated%20and%20sad%20while%20other%20figures%20in%20the%20background%20are%20pointing%20or%20whispering.%20Use%20a%20serious%2C%20empathetic%20tone%20with%20a%20focus%20on%20the%20victim%27s%20feelings.%20Clean%20design%20with%20soft%20but%20contrasting%20colors.&width=600&height=400&seq=def1&orientation=landscape" alt="Ilustração do Bullying e Isolamento" class="rounded-xl shadow-lg w-full h-auto object-cover">
+<div class="grid grid-cols-2 gap-4">
+<img src="https://readdy.ai/api/search-image?query=Close-up%20of%20a%20hand%20reaching%20out%20to%20help%20another%20hand%20that%20is%20clenched%2C%20symbolizing%20support%20and%20anti-bullying%20intervention%20in%20a%20school%20hallway%20or%20classroom.&width=300&height=200&seq=def2&orientation=landscape" alt="Ajuda e Suporte Contra o Bullying" class="rounded-lg shadow-sm w-full h-auto object-cover">
+<img src="https://readdy.ai/api/search-image?query=A%20sad%20teenager%20looking%20at%20a%20phone%20screen%20with%20mean%20comments%2C%20representing%20cyberbullying%20in%20a%20darker%20setting%20with%20blue%20light%20from%20the%20screen.&width=300&height=200&seq=def3&orientation=landscape" alt="Cyberbullying" class="rounded-lg shadow-sm w-full h-auto object-cover">
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="importancia" class="py-20 bg-gray-50 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-red-50/50 to-transparent"></div>
+<div class="absolute inset-0 opacity-5">
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+<pattern id="pattern-circles" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+<circle id="pattern-circle" cx="10" cy="10" r="2" fill="#DC2626"></circle>
+</pattern>
+<rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+</svg>
+</div>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">O Impacto Profundo do Bullying</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">O Bullying não é "coisa de criança" e tem consequências sérias e duradouras para todas as partes envolvidas.</p>
+<div class="mt-8 grid grid-cols-4 gap-4">
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="text-3xl font-bold text-primary mb-2">28%</div>
+<p class="text-gray-600 text-sm">dos jovens já sofreram bullying no Brasil</p>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="text-3xl font-bold text-secondary mb-2">40%</div>
+<p class="text-gray-600 text-sm">das vítimas desenvolvem depressão</p>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="text-3xl font-bold text-purple-500 mb-2">10x</div>
+<p class="text-gray-600 text-sm">maior risco de problemas de saúde mental</p>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="text-3xl font-bold text-gray-700 mb-2">7/10</div>
+<p class="text-gray-600 text-sm">não pedem ajuda por medo ou vergonha</p>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<div class="bg-white p-8 rounded-xl shadow-md mb-8">
+<div id="importanciaChart" class="w-full h-80 flex items-center justify-center">
+<div class="p-6 bg-red-50 rounded-lg text-center">
+<p class="text-xl font-semibold text-primary mb-2">Consequências na Saúde Mental</p>
+<ul class="space-y-2 text-gray-700 list-disc list-inside">
+<li>Ansiedade e Transtorno do Pânico</li>
+<li>Fobia Social e Isolamento</li>
+<li>Baixa Autoestima e Autoconceito Negativo</li>
+<li>Queda no Desempenho Escolar</li>
+</ul>
+</div>
+</div>
+</div>
+<p class="text-gray-600 text-center">Foco nos danos psicológicos e emocionais causados pela agressão contínua.</p>
+</div>
+<div>
+<div class="space-y-8">
+<div class="flex gap-5">
+<div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-user-unfollow-line ri-xl text-primary"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Vítimas: Medo e Isolamento</h3>
+<p class="text-gray-700">O sofrimento leva a problemas graves como depressão, ansiedade, automutilação e, em casos extremos, ideação suicida. O impacto afeta a vida adulta, gerando dificuldade em confiar em outras pessoas.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-user-heart-line ri-xl text-secondary"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Agressores: Ciclo de Violência</h3>
+<p class="text-gray-700">Muitos agressores também são vítimas ou têm dificuldades emocionais. Sem intervenção, eles correm maior risco de desenvolver comportamentos antissociais e problemas com a lei na idade adulta.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-team-line ri-xl text-purple-500"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Espectadores: Cultura do Silêncio</h3>
+<p class="text-gray-700">O silêncio dos colegas perpetua o bullying. Os espectadores podem se sentir culpados ou com medo de serem as próximas vítimas, criando um ambiente escolar de medo e desconfiança.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-error-warning-line ri-xl text-gray-700"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Danos à Comunidade</h3>
+<p class="text-gray-700">O bullying degrada o clima escolar, afetando a aprendizagem e o bem-estar de todos. É um problema social que exige responsabilidade coletiva.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="niveis" class="py-20 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Principais Tipos de Bullying</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">O bullying pode manifestar-se de diversas formas, sendo essencial reconhecer cada uma delas para combatê-lo.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-red-50 rounded-xl p-8 shadow-sm hover:shadow-md transition relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-red-100 rounded-bl-full -mr-12 -mt-12 transition-all duration-300 group-hover:scale-110"></div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+<i class="ri-user-3-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Bullying Físico e Verbal</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Agressões físicas (chutes, socos, empurrões)</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Ameaças e intimidação</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Insultos, apelidos e xingamentos</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Roubo ou dano a pertences</span>
+</li>
+</ul>
+<div class="mt-8">
+<span class="inline-block bg-red-100 text-primary px-4 py-2 rounded-full text-sm font-medium">Mais Visível</span>
+</div>
+</div>
+</div>
+<div class="bg-amber-50 rounded-xl p-8 shadow-sm hover:shadow-md transition relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-amber-100 rounded-bl-full -mr-12 -mt-12 transition-all duration-300 group-hover:scale-110"></div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+<i class="ri-wifi-line ri-2x text-secondary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Cyberbullying</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Exposição de fotos ou vídeos constrangedores</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Criação de perfis falsos para difamar</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Mensagens de ódio e ameaças online</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mt-1 mr-2"></i>
+<span>Exclusão intencional de grupos online</span>
+</li>
+</ul>
+<div class="mt-8">
+<span class="inline-block bg-amber-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">Digital e 24/7</span>
+</div>
+</div>
+</div>
+<div class="bg-indigo-50 rounded-xl p-8 shadow-sm hover:shadow-md transition relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-indigo-100 rounded-bl-full -mr-12 -mt-12 transition-all duration-300 group-hover:scale-110"></div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+<i class="ri-user-line ri-2x text-indigo-500"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Bullying Social e Psicológico</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-indigo-500 mt-1 mr-2"></i>
+<span>Exclusão ou isolamento intencional do grupo</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-indigo-500 mt-1 mr-2"></i>
+<span>Espalhar boatos e fofocas maldosas</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-indigo-500 mt-1 mr-2"></i>
+<span>Manipulação e chantagem emocional</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-indigo-500 mt-1 mr-2"></i>
+<span>Fazer piadas de cunho sexual ou racista</span>
+</li>
+</ul>
+<div class="mt-8">
+<span class="inline-block bg-indigo-100 text-indigo-500 px-4 py-2 rounded-full text-sm font-medium">Mais Subtil</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 bg-gray-100 rounded-xl p-8 shadow-sm">
+<h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Como Intervir e Ajudar</h3>
+<div class="max-w-3xl mx-auto">
+<div class="mb-8">
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Reconhecer</span>
+<span class="text-gray-600">Intervir</span>
+<span class="text-gray-600">Acompanhar</span>
+</div>
+<input type="range" min="1" max="100" value="70" class="w-full h-2 bg-gray-300 rounded-full appearance-none cursor-pointer">
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<h4 class="text-lg font-medium text-gray-900 mb-4">O que VOCÊ pode fazer:</h4>
+<div class="space-y-4">
+<div>
+<input type="checkbox" id="skill1" class="custom-checkbox">
+<label for="skill1" class="custom-checkbox-label">Denunciar imediatamente a um adulto de confiança</label>
+</div>
+<div>
+<input type="checkbox" id="skill2" class="custom-checkbox">
+<label for="skill2" class="custom-checkbox-label">Não rir ou incentivar o agressor</label>
+</div>
+<div>
+<input type="checkbox" id="skill3" class="custom-checkbox">
+<label for="skill3" class="custom-checkbox-label">Oferecer apoio e amizade à vítima</label>
+</div>
+<div>
+<input type="checkbox" id="skill4" class="custom-checkbox">
+<label for="skill4" class="custom-checkbox-label">Saber que não é sua culpa (se for a vítima)</label>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<h4 class="text-lg font-medium text-gray-900 mb-4">Recursos Imediatos</h4>
+<p class="text-gray-700 mb-4">Se você ou alguém que você conhece está sofrendo, procure ajuda:</p>
+<ul class="space-y-2 text-gray-700">
+<li class="flex items-start">
+<i class="ri-arrow-right-circle-line text-primary mt-1 mr-2"></i>
+<span>**Disque 100** (Direitos Humanos)</span>
+</li>
+<li class="flex items-start">
+<i class="ri-arrow-right-circle-line text-primary mt-1 mr-2"></i>
+<span>**CVV 188** (Prevenção ao Suicídio)</span>
+</li>
+<li class="flex items-start">
+<i class="ri-arrow-right-circle-line text-primary mt-1 mr-2"></i>
+<span>Procure um professor ou orientador escolar</span>
+</li>
+</ul>
+<button class="mt-6 bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-red-700 transition whitespace-nowrap">Ver Contatos de Apoio</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="orientacao" class="py-20 bg-gray-100">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Orientações para Pais e Educadores 👨‍🏫</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Intervenção é a chave. Saiba como agir de forma eficaz e empática para proteger e educar.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-primary">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+            <i class="ri-parent-line ri-xl text-primary mr-3"></i> O Papel dos Pais
+        </h3>
+        <ul class="space-y-6 text-gray-700">
+            <li class="flex gap-4">
+                <div class="text-primary text-3xl font-bold flex-shrink-0">1.</div>
+                <div>
+                    <p class="font-semibold text-gray-900">Observe os Sinais Não Verbais</p>
+                    <p class="text-sm">Procure por **isolamento**, recusa em ir à escola, perda de sono ou apetite, e marcas físicas inexplicáveis. A mudança de comportamento é o principal indicador.</p>
+                </div>
+            </li>
+            <li class="flex gap-4">
+                <div class="text-primary text-3xl font-bold flex-shrink-0">2.</div>
+                <div>
+                    <p class="font-semibold text-gray-900">Comunique-se sem Julgamento</p>
+                    <p class="text-sm">Crie um ambiente de **confiança**. Evite perguntar "O que você fez para provocar?". Pergunte: "Percebi que você está triste, quer me contar o que aconteceu?".</p>
+                </div>
+            </li>
+            <li class="flex gap-4">
+                <div class="text-primary text-3xl font-bold flex-shrink-0">3.</div>
+                <div>
+                    <p class="font-semibold text-gray-900">Documente e Relate</p>
+                    <p class="text-sm">Anote datas, locais e nomes. Leve as informações à **direção escolar** ou aos canais de denúncia. A documentação é essencial para a intervenção formal.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-secondary">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+            <i class="ri-book-3-line ri-xl text-secondary mr-3"></i> Ações na Escola
+        </h3>
+        <ul class="space-y-6 text-gray-700">
+            <li class="flex gap-4">
+                <div class="text-secondary text-3xl font-bold flex-shrink-0">1.</div>
+                <div>
+                    <p class="font-semibold text-gray-900">Intervenção Imediata e Firme</p>
+                    <p class="text-sm">O bullying deve ser interrompido no ato, de forma **calma, mas assertiva**. Nunca ignore. Converse com as partes separadamente, garantindo a segurança da vítima.</p>
+                </div>
+            </li>
+            <li class="flex gap-4">
+                <div class="text-secondary text-3xl font-bold flex-shrink-0">2.</div>
+                <div>
+                    <p class="font-semibold text-gray-900">Foque no Comportamento, Não no Aluno</p>
+                    <p class="text-sm">Concentre-se em mudar a atitude do agressor, não em culpá-lo publicamente. Ofereça **apoio psicológico** ao agressor para entender a causa da violência.</p>
+                </div>
+            </li>
+            <li class="flex gap-4">
+                <div class="text-secondary text-3xl font-bold flex-shrink-0">3.</div>
+                <div>
+                    <p class="font-semibold text-gray-900">Política Antibullying Clara</p>
+                    <p class="text-sm">A escola deve ter um protocolo oficial de combate ao bullying, divulgado a alunos, pais e funcionários, com **consequências** claras para a reincidência.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="mt-12 text-center">
+    <a href="#" class="bg-secondary text-white px-8 py-3 rounded-button font-medium hover:bg-amber-600 transition whitespace-nowrap">Ver Guia Completo para Educadores</a>
+</div>
+</div>
+</section>
+<section id="recursos" class="py-20 bg-red-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Canais de Ajuda e Apoio</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Não enfrente o Bullying sozinho. Conheça os principais recursos e canais para obter suporte e denunciar.</p>
+</div>
+<div class="mb-10">
+<div class="flex flex-wrap justify-center gap-4 mb-8">
+<button class="resource-filter active bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition whitespace-nowrap" data-filter="all">Todos</button>
+<button class="resource-filter bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition whitespace-nowrap" data-filter="contato">Contatos de Emergência</button>
+<button class="resource-filter bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition whitespace-nowrap" data-filter="guias">Guias e Orientações</button>
+<button class="resource-filter bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition whitespace-nowrap" data-filter="instituicoes">Instituições de Apoio</button>
+</div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="contato">
+<div class="aspect-video relative bg-primary flex items-center justify-center">
+<i class="ri-phone-line ri-4x text-white"></i>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-red-100 text-primary px-3 py-1 rounded-full text-xs font-medium">Emergência</span>
+<span class="text-primary font-medium text-sm">Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Disque 100 - Direitos Humanos</h3>
+<p class="text-gray-600 mb-4">Canal para denúncias de violações de direitos humanos, incluindo bullying e cyberbullying.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-time-line mr-2 text-gray-500"></i>
+<span class="text-gray-500 text-sm">Atendimento 24h</span>
+</div>
+<a href="tel:100" class="text-primary font-medium hover:text-red-700 transition flex items-center">
+Ligar <i class="ri-external-link-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="contato">
+<div class="aspect-video relative bg-gray-700 flex items-center justify-center">
+<i class="ri-chat-1-line ri-4x text-white"></i>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">Apoio Emocional</span>
+<span class="text-primary font-medium text-sm">Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">CVV - Centro de Valorização da Vida</h3>
+<p class="text-gray-600 mb-4">Atendimento gratuito e sigiloso para apoio emocional e prevenção do suicídio. Se você se sente isolado, ligue.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-time-line mr-2 text-gray-500"></i>
+<span class="text-gray-500 text-sm">Ligação 188</span>
+</div>
+<a href="tel:188" class="text-primary font-medium hover:text-red-700 transition flex items-center">
+Ligar <i class="ri-external-link-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="guias">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Illustrated%20guidebook%20cover%20about%20anti-bullying%20strategies%20for%20parents%20and%20teachers%2C%20featuring%20icons%20of%20a%20family%20and%20a%20school%20building%20with%20a%20safe%20symbol%20overlaid.%20Use%20a%20friendly%2C%20educational%20style.&width=600&height=400&seq=res3&orientation=landscape" alt="Guia para Pais e Professores" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-amber-100 text-secondary px-3 py-1 rounded-full text-xs font-medium">Guia</span>
+<span class="text-primary font-medium text-sm">PDF Gratuito</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Guia de Prevenção ao Bullying</h3>
+<p class="text-gray-600 mb-4">Material com orientações práticas para pais e educadores sobre como identificar e intervir em casos de bullying.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-file-text-line mr-2 text-gray-500"></i>
+<span class="text-gray-500 text-sm">Download</span>
+</div>
+<a href="#" target="_blank" class="text-primary font-medium hover:text-red-700 transition flex items-center">
+Baixar <i class="ri-external-link-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="resource-item bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group" data-category="instituicoes">
+    <div class="h-48 overflow-hidden">
+        <img src="https://readdy.ai/api/search-image?query=Illustration%20of%20a%20group%20of%20people%20in%20a%20support%20circle%20or%20therapy%20session%20with%20a%20light%20and%20safe%20atmosphere%2C%20representing%20psychological%20support%20institutions.&width=600&height=400&seq=res4&orientation=landscape" alt="Instituições de Apoio Psicológico" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+    </div>
+    <div class="p-6">
+        <div class="flex justify-between items-center mb-3">
+            <span class="bg-indigo-100 text-indigo-500 px-3 py-1 rounded-full text-xs font-medium">Suporte</span>
+            <span class="text-gray-500 font-medium text-sm">Varia</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Apoio Psicológico na Escola</h3>
+        <p class="text-gray-600 mb-4">Muitas escolas e universidades oferecem atendimento psicológico gratuito ou com custo reduzido. Procure a coordenação.</p>
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="ri-map-pin-line mr-2 text-gray-500"></i>
+                <span class="text-gray-500 text-sm">Sua Instituição</span>
+            </div>
+            <a href="#" class="text-primary font-medium hover:text-red-700 transition flex items-center">
+                Saiba Mais <i class="ri-external-link-line ml-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a href="#" class="bg-gray-200 text-gray-700 px-8 py-3 rounded-button font-medium hover:bg-gray-300 transition whitespace-nowrap">Ver Mais Recursos e Links de Apoio</a>
+</div>
+</div>
+</section>
+
+<section id="depoimentos" class="py-20 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Histórias de Superação 💪</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Vozes de quem enfrentou o Bullying e encontrou ajuda. O seu relato pode inspirar outros a pedir ajuda.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+    
+    <div class="bg-gray-50 p-8 rounded-xl shadow-md border-t-4 border-primary/70">
+        <div class="flex items-center mb-4">
+            <img src="https://readdy.ai/api/search-image?query=Young%20woman%20smiling%20confidently%20in%20a%20natural%20setting%2C%20symbolizing%20recovery%20from%20trauma%2C%20light%20skin%20and%20dark%20hair&width=80&height=80&seq=depo1&orientation=portrait" alt="Foto de Maria" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-primary">
+            <div>
+                <p class="font-semibold text-gray-900">Maria S.</p>
+                <p class="text-sm text-gray-500">Superou o Cyberbullying</p>
+            </div>
+        </div>
+        <blockquote class="text-gray-700 italic border-l-4 border-primary pl-4">
+            "Eu pensei que nunca ia acabar. As mensagens de ódio me destruíram, mas quando denunciei, a escola e meus pais me apoiaram. Falar foi o primeiro passo para a cura. Não se cale."
+        </blockquote>
+    </div>
+    
+    <div class="bg-gray-50 p-8 rounded-xl shadow-md border-t-4 border-secondary/70">
+        <div class="flex items-center mb-4">
+            <img src="https://readdy.ai/api/search-image?query=Teenager%20with%20a%20serious%20but%20kind%20expression%20in%20a%20school%20environment%2C%20symbolizing%20an%20active%20bystander%2C%20medium%20skin%20and%20short%20hair&width=80&height=80&seq=depo2&orientation=portrait" alt="Foto de João" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-secondary">
+            <div>
+                <p class="font-semibold text-gray-900">João P.</p>
+                <p class="text-sm text-gray-500">Espectador Ativo</p>
+            </div>
+        </div>
+        <blockquote class="text-gray-700 italic border-l-4 border-secondary pl-4">
+            "Eu via o que acontecia, mas tinha medo de me intrometer. Um dia, vi o sofrimento do meu amigo e decidi contar para a professora. Não é 'dedurar', é proteger. Minha ação fez a diferença."
+        </blockquote>
+    </div>
+    
+    <div class="bg-gray-50 p-8 rounded-xl shadow-md border-t-4 border-indigo-500/70">
+        <div class="flex items-center mb-4">
+            <img src="https://readdy.ai/api/search-image?query=Caring%20parent%20looking%20outward%20with%20an%20empathetic%20expression%2C%20representing%20family%20support%2C%20middle-aged%20woman%20with%20glasses&width=80&height=80&seq=depo3&orientation=portrait" alt="Foto de Ana" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-indigo-500">
+            <div>
+                <p class="font-semibold text-gray-900">Ana L.</p>
+                <p class="text-sm text-gray-500">Mãe e Aliada</p>
+            </div>
+        </div>
+        <blockquote class="text-gray-700 italic border-l-4 border-indigo-500 pl-4">
+            "Notei que meu filho estava apático e parou de querer ir à escola. Foi difícil tirá-lo do casulo, mas a chave é o diálogo, sem julgamento. Pais, fiquem atentos aos sinais!"
+        </blockquote>
+    </div>
+
+</div>
+<div class="mt-12 text-center">
+    <a href="#feedback" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-red-700 transition whitespace-nowrap">Envie sua História (Anonimamente)</a>
+</div>
+</div>
+</section>
+
+<section id="feedback" class="py-20 bg-gray-100">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Relate um Caso de Bullying 🛡️</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Sua denúncia é vital para a criação de um ambiente seguro. Garantimos **confidencialidade total** no tratamento das informações.</p>
+</div>
+<div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg border-t-4 border-red-500">
+    <form action="#" method="POST">
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 form-group">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                    Seu Nome (Opcional)
+                </label>
+                <input class="form-input" id="grid-first-name" type="text" placeholder="Seu nome ou Deixar Anônimo">
+            </div>
+            <div class="w-full md:w-1/2 px-3 form-group">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                    Tipo de Caso
+                </label>
+                <select class="form-input" id="grid-last-name">
+                    <option>Bullying Físico</option>
+                    <option>Bullying Verbal/Psicológico</option>
+                    <option>Cyberbullying</option>
+                    <option>Exclusão Social</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
+                Local/Ambiente da Ocorrência
+            </label>
+            <input class="form-input" id="grid-email" type="text" placeholder="Ex: Escola X, Plataforma Y, Rua Z">
+        </div>
+        <div class="form-group">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-message">
+                Detalhes do Ocorrido (Quando e Como)
+            </label>
+            <textarea class="form-input h-32" id="grid-message" placeholder="Descreva o incidente ou a repetição dos atos de agressão."></textarea>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="confidential" class="custom-checkbox" checked>
+            <label for="confidential" class="custom-checkbox-label text-gray-700">
+                Li e concordo com a **Política de Confidencialidade** desta denúncia.
+            </label>
+        </div>
+        <button type="submit" class="w-full btn btn-primary mt-4">
+            <i class="ri-shield-line mr-2"></i> Enviar Relato Confidencial
+        </button>
+    </form>
+</div>
+<div class="mt-8 text-center text-sm text-gray-600">
+    <p>Em caso de emergência ou risco imediato, ligue para **190** (Polícia) ou **100** (Disque Direitos Humanos).</p>
+</div>
+</div>
+</section>
+
+<footer class="bg-gray-800 text-white py-12">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="footer-grid pb-8 border-b border-gray-700">
+<div>
+<div class="flex items-center mb-4">
+<img src="https://static.readdy.ai/image/66e564e1cc0fd1850066a7c6b0396ffd/80bc5af3d9d5f3bf5fa5a0b1b3bcfbb3.png" alt="UNIFAGOC" class="h-10">
+</div>
+<p class="text-gray-400 text-sm">Uma iniciativa dedicada à construção de um ambiente livre de violência e opressão. Juntos, fazemos a diferença.</p>
+<div class="flex space-x-4 mt-6">
+<a href="#" class="text-gray-400 hover:text-primary transition"><i class="ri-facebook-fill ri-lg"></i></a>
+<a href="#" class="text-gray-400 hover:text-primary transition"><i class="ri-twitter-fill ri-lg"></i></a>
+<a href="#" class="text-gray-400 hover:text-primary transition"><i class="ri-instagram-line ri-lg"></i></a>
+<a href="#" class="text-gray-400 hover:text-primary transition"><i class="ri-linkedin-fill ri-lg"></i></a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4 text-white">Navegação</h4>
+<div class="footer-links text-gray-400">
+<a href="#definicao" class="hover:text-primary transition">O que é Bullying?</a>
+<a href="#importancia" class="hover:text-primary transition">Impactos</a>
+<a href="#orientacao" class="hover:text-primary transition">Orientação</a>
+<a href="#recursos" class="hover:text-primary transition">Canais de Ajuda</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4 text-white">Ajuda Rápida</h4>
+<div class="footer-links text-gray-400">
+<a href="tel:100" class="hover:text-primary transition">Denúncia (Disque 100)</a>
+<a href="tel:188" class="hover:text-primary transition">Suporte Emocional (CVV)</a>
+<a href="#orientacao" class="hover:text-primary transition">Guia para Pais</a>
+<a href="#feedback" class="hover:text-primary transition">Relato Confidencial</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4 text-white">Contato</h4>
+<p class="text-gray-400">Email: <a href="mailto:contato@bullyingnao.com.br" class="hover:text-primary transition">contato@bullyingnao.com.br</a></p>
+<p class="text-gray-400 mt-2">Telefone: (32) 99876-5432</p>
+<p class="text-gray-400 mt-2">Endereço: Rua do Respeito, 123, Cidade do Bem-Estar</p>
+</div>
+</div>
+<div class="footer-bottom pt-8 flex items-center">
+<p class="text-gray-400 text-sm">&copy; 2024 Projeto Conscientização Bullying. Todos os direitos reservados.</p>
+<p class="text-gray-400 text-sm">Desenvolvido com <span class="text-primary">❤️</span> para a UNIFAGOC.</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Javascript para o menu mobile e filtro de recursos (COMPLETADO)
+document.getElementById('mobile-menu-button').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+
+document.querySelectorAll('.resource-filter').forEach(button => {
+    button.addEventListener('click', function() {
+        document.querySelectorAll('.resource-filter').forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-white'));
+        document.querySelectorAll('.resource-filter').forEach(btn => btn.classList.add('bg-white', 'text-gray-700'));
+        this.classList.add('active', 'bg-primary', 'text-white');
+        this.classList.remove('bg-white', 'text-gray-700');
+
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.resource-item').forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.style.display = 'grid'; // Define para 'grid' (ou 'block') para exibir
+            } else {
+                item.style.display = 'none'; // Esconde
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
